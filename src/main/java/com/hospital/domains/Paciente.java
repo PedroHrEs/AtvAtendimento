@@ -34,11 +34,11 @@ public class Paciente {
         this.custoInternacao = BigDecimal.ZERO;
     }
 
-    public Paciente(BigDecimal custoInternacao, LocalDate dataNascimento, String nome, Long id) {
-        this.custoInternacao = custoInternacao;
-        this.dataNascimento = dataNascimento;
-        this.nome = nome;
+    public Paciente(Long id, String nome, LocalDate dataNascimento, BigDecimal custoInternacao) {
         this.id = id;
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.custoInternacao = custoInternacao;
     }
 
     public Long getId() {
@@ -78,11 +78,13 @@ public class Paciente {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Paciente paciente = (Paciente) o;
-        return Objects.equals(id, paciente.id) && Objects.equals(nome, paciente.nome) && Objects.equals(dataNascimento, paciente.dataNascimento) && Objects.equals(custoInternacao, paciente.custoInternacao);
+        return Objects.equals(id, paciente.id) && Objects.equals(nome, paciente.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, dataNascimento, custoInternacao);
+        return Objects.hash(id, nome);
     }
 }
+
+
